@@ -10,14 +10,6 @@
 
 @implementation UIColor (SRColors)
 
-+(UIColor *)primaryColor{
-     return [UIColor colorWithHexString:@"#F8F8F8"];
-}
-
-+(UIColor *)secondaryColor{
-    return [UIColor colorWithHexString:@"#FB6D00"];
-}
-
 +(UIColor *)backgroundColor{
    return [UIColor colorWithHexString:@"#F5F8FA"];
 }

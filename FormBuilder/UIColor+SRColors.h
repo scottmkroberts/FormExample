@@ -10,12 +10,9 @@
 
 @interface UIColor (SRColors)
 
-+(UIColor *)primaryColor;
-+(UIColor *)secondaryColor;
+
 +(UIColor *)backgroundColor;
-
-
-+ (UIColor *) colorWithHexString:(NSString *)hex;
-+ (UIColor *) colorWithHexValue: (NSInteger) hex;
++(UIColor *) colorWithHexString:(NSString *)hex;
++(UIColor *) colorWithHexValue: (NSInteger) rgbValue;
 
 @end

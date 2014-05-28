@@ -60,7 +60,6 @@ static NSString *kCustomPickerCellID = @"customPickerCellID";
 @property (nonatomic) BOOL keyboardIsShowing;
 
 @property (nonatomic) UITableViewCell *selectedCell;
-@property (nonatomic) NSIndexPath *selectedCellIndexPath;
 
 @property (nonatomic) UIPickerType pickerType;
 @property (nonatomic) NSIndexPath *pickerIndexPath;
@@ -180,12 +179,12 @@ static NSString *kCustomPickerCellID = @"customPickerCellID";
                                kValueKey : [NSNumber numberWithBool:YES],
                                kTypeKey : [self numberWithType:UITableViewCellTypeBool] };
     
-    NSDictionary *itemSeven = @{ kTitleKey : @"Select Example",
-                                  kValueKey : @"Item 1",
-                                  kTypeKey : [self numberWithType:UITableViewCellTypeSelect] };
+//    NSDictionary *itemSeven = @{ kTitleKey : @"Select Example",
+//                                  kValueKey : @"Item 1",
+//                                  kTypeKey : [self numberWithType:UITableViewCellTypeSelect] };
     
     
-    return @[itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix, itemSeven];
+    return @[itemOne, itemTwo, itemThree, itemFour, itemFive, itemSix];
 }
 
 #pragma mark - 
@@ -217,13 +216,11 @@ static NSString *kCustomPickerCellID = @"customPickerCellID";
     self.timeFormatter = [[NSDateFormatter alloc] init];
     [self.timeFormatter setDateFormat:@"HH:mm:ss"];
     
-    NSNotificationCenter *center = [NSNotificationCenter defaultCenter];
-
-    [center addObserver:self selector:@selector(localeChanged:)
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(localeChanged:)
                                                  name:NSCurrentLocaleDidChangeNotification
                                                object:nil];
     
-    [center addObserver:self selector:@selector(keyboardDidShow) name:UIKeyboardDidShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardDidShow) name:UIKeyboardDidShowNotification object:nil];
 
     
 }
@@ -428,26 +425,22 @@ static NSString *kCustomPickerCellID = @"customPickerCellID";
     
     [self resignKeyboard];
     self.selectedCell = [tableView cellForRowAtIndexPath:indexPath];
-    self.selectedCellIndexPath = indexPath;
     
     if (self.selectedCell.reuseIdentifier == kTextCellID){
         [self toggleTextFieldForCellWithKeyboardtype:UIKeyboardTypeAlphabet];
     }else if (self.selectedCell.reuseIdentifier == kDecimalCellID){
         [self toggleTextFieldForCellWithKeyboardtype:UIKeyboardTypeDecimalPad];
     }else if (self.selectedCell.reuseIdentifier == kSelectCellID){
-
         [self toggleSelectViewController];
-    
-    
     }else if (self.selectedCell.reuseIdentifier == kDateCellID){
         self.pickerType = UIPickerTypeDate;
-        [self displayInlinePickerForRowAtIndexPAth:indexPath];
+        [self displayInlinePickerForRowAtIndexPath:indexPath];
     }else if (self.selectedCell.reuseIdentifier == kTimeCellID){
         self.pickerType = UIPickerTypeTime;
-        [self displayInlinePickerForRowAtIndexPAth:indexPath];
+        [self displayInlinePickerForRowAtIndexPath:indexPath];
     }else if (self.selectedCell.reuseIdentifier == kCustomCellID){
         self.pickerType = UIPickerTypeCustom;
-        [self displayInlinePickerForRowAtIndexPAth:indexPath];
+        [self displayInlinePickerForRowAtIndexPath:indexPath];
     }
 
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
@@ -461,7 +454,7 @@ static NSString *kCustomPickerCellID = @"customPickerCellID";
     //
 }
 
--(void)displayInlinePickerForRowAtIndexPAth:(NSIndexPath *)indexPath{
+-(void)displayInlinePickerForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     // display the date picker inline with the table content
     [self.tableView beginUpdates];
@@ -553,7 +546,7 @@ static NSString *kCustomPickerCellID = @"customPickerCellID";
 
 -(void)toggleTextFieldForCellWithKeyboardtype:(UIKeyboardType)keyboardType{
     
-    [self.tableView deselectRowAtIndexPath:self.selectedCellIndexPath animated:YES]; // Fix to make sure cell is not highlighted
+    [self.tableView deselectRowAtIndexPath:[self.tableView indexPathForSelectedRow] animated:YES]; // Fix to make sure cell is not highlighted
     
     if(self.textfield){
         [self.textfield removeFromSuperview];
