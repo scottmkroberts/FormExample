@@ -22,7 +22,6 @@
 		185CDF26192B59C600E5CF21 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 185CDF24192B59C600E5CF21 /* InfoPlist.strings */; };
 		185CDF28192B59C600E5CF21 /* FormBuilderTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 185CDF27192B59C600E5CF21 /* FormBuilderTests.m */; };
 		185CDF33192B5AB600E5CF21 /* SRFormTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 185CDF32192B5AB600E5CF21 /* SRFormTableViewController.m */; };
-		185CDF3C192E25E500E5CF21 /* SRFormTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 185CDF3B192E25E500E5CF21 /* SRFormTableViewCell.m */; };
 		185CDF3F192FF83F00E5CF21 /* UIColor+SRColors.m in Sources */ = {isa = PBXBuildFile; fileRef = 185CDF3E192FF83F00E5CF21 /* UIColor+SRColors.m */; };
 		185CDF42192FFBA600E5CF21 /* SRTimerPicker.m in Sources */ = {isa = PBXBuildFile; fileRef = 185CDF41192FFBA600E5CF21 /* SRTimerPicker.m */; };
 /* End PBXBuildFile section */
@@ -59,8 +58,6 @@
 		185CDF27192B59C600E5CF21 /* FormBuilderTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FormBuilderTests.m; sourceTree = "<group>"; };
 		185CDF31192B5AB600E5CF21 /* SRFormTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRFormTableViewController.h; sourceTree = "<group>"; };
 		185CDF32192B5AB600E5CF21 /* SRFormTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRFormTableViewController.m; sourceTree = "<group>"; };
-		185CDF3A192E25E500E5CF21 /* SRFormTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRFormTableViewCell.h; sourceTree = "<group>"; };
-		185CDF3B192E25E500E5CF21 /* SRFormTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRFormTableViewCell.m; sourceTree = "<group>"; };
 		185CDF3D192FF83F00E5CF21 /* UIColor+SRColors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+SRColors.h"; sourceTree = "<group>"; };
 		185CDF3E192FF83F00E5CF21 /* UIColor+SRColors.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+SRColors.m"; sourceTree = "<group>"; };
 		185CDF40192FFBA600E5CF21 /* SRTimerPicker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRTimerPicker.h; sourceTree = "<group>"; };
@@ -137,8 +134,6 @@
 				18245C641934A8BC00EAFF4B /* SRFormSelectTableViewController.m */,
 				185CDF14192B59C600E5CF21 /* Images.xcassets */,
 				185CDF03192B59C600E5CF21 /* Supporting Files */,
-				185CDF3A192E25E500E5CF21 /* SRFormTableViewCell.h */,
-				185CDF3B192E25E500E5CF21 /* SRFormTableViewCell.m */,
 			);
 			path = FormBuilder;
 			sourceTree = "<group>";
@@ -270,7 +265,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				185CDF3C192E25E500E5CF21 /* SRFormTableViewCell.m in Sources */,
 				185CDF09192B59C600E5CF21 /* main.m in Sources */,
 				185CDF42192FFBA600E5CF21 /* SRTimerPicker.m in Sources */,
 				185CDF3F192FF83F00E5CF21 /* UIColor+SRColors.m in Sources */,

@@ -62,7 +62,6 @@ static NSString *kCustomPickerCellID = @"customPickerCellID";
 @property (nonatomic) UITableViewCell *selectedCell;
 @property (nonatomic) NSIndexPath *selectedCellIndexPath;
 
-@property (nonatomic) UIDatePicker *datePicker;
 @property (nonatomic) UIPickerType pickerType;
 @property (nonatomic) NSIndexPath *pickerIndexPath;
 @property (assign) NSInteger pickerCellRowHeight;
@@ -73,7 +72,7 @@ static NSString *kCustomPickerCellID = @"customPickerCellID";
 
 @implementation SRFormTableViewController
 
-#pragma mark - Picker Check 
+#pragma mark - Inline Picker Helpers
 
 - (BOOL)hasInlinePicker{
     return (self.pickerIndexPath != nil);
@@ -427,7 +426,7 @@ static NSString *kCustomPickerCellID = @"customPickerCellID";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    [self reset];
+    [self resignKeyboard];
     self.selectedCell = [tableView cellForRowAtIndexPath:indexPath];
     self.selectedCellIndexPath = indexPath;
     
@@ -441,15 +440,12 @@ static NSString *kCustomPickerCellID = @"customPickerCellID";
     
     
     }else if (self.selectedCell.reuseIdentifier == kDateCellID){
-        [self resignKeyboard];
         self.pickerType = UIPickerTypeDate;
         [self displayInlinePickerForRowAtIndexPAth:indexPath];
     }else if (self.selectedCell.reuseIdentifier == kTimeCellID){
-        [self resignKeyboard];
         self.pickerType = UIPickerTypeTime;
         [self displayInlinePickerForRowAtIndexPAth:indexPath];
     }else if (self.selectedCell.reuseIdentifier == kCustomCellID){
-        [self resignKeyboard];
         self.pickerType = UIPickerTypeCustom;
         [self displayInlinePickerForRowAtIndexPAth:indexPath];
     }
@@ -584,16 +580,6 @@ static NSString *kCustomPickerCellID = @"customPickerCellID";
 
 }
 
-
--(void)reset{
-    if(self.keyboardIsShowing){
-        self.textfield.hidden = YES;
-        self.selectedCell.detailTextLabel.hidden = NO;
-    }
-    
-    self.selectedCell.detailTextLabel.hidden = NO;
-
-}
 
 #pragma mark - Text field action
 
