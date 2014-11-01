@@ -567,7 +567,6 @@ static NSString *kCustomPickerCellID = @"customPickerCellID";
     [self.textfield setText:self.selectedCell.detailTextLabel.text];
     [self.textfield addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     self.selectedCell.detailTextLabel.hidden = YES;
-    //self.textfield.backgroundColor = [UIColor redColor];
     [self.selectedCell.contentView addSubview:self.textfield];
     [self.textfield becomeFirstResponder];
 
